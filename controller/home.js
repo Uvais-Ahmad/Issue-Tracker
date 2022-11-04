@@ -1,4 +1,8 @@
 module.exports.home = function ( req , res ){
-    // res.send('<h1>Hii This from the ISSUE TRACKER </h1>');
     res.render('layout');
+}
+
+module.exports.create = function( req , res ){
+    console.log('req.body : ',req.body);
+    res.redirect('/');
 }
