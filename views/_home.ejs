@@ -17,22 +17,18 @@
 
     <!-- List of all created project -->
     <div class="issue-container bg-info w-50 mx-auto p-2">
+      <% for(let project of projects ){ %>
         <div class="card mx-2 my-3">
-          <h5 class="card-header">Repositiory</h5>
+          <div class="card-header d-flex justify-content-between	">
+            <h5 class="d-inline-block" ><%= project.name %></h5>
+              <a href="/destroy/<%= project._id %>" class="btn btn-danger">Delete</a>
+          </div>
           <div class="card-body">
-            <h5 class="card-title">Author</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">View</a>
+            <h5 class="card-title"><%= project.author %> </h5>
+            <p class="card-text"><%= project.description %> </p>
+            <a href="/view-project/<%= project._id %>" class="btn btn-primary">View</a>
           </div>
         </div>
-
-        <div class="card mx-2 my-3">
-          <h5 class="card-header">Repositiory</h5>
-          <div class="card-body">
-            <h5 class="card-title">Author</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">View</a>
-          </div>
-        </div>
+      <% } %> 
     </div>
 </main>
