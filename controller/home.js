@@ -1,4 +1,5 @@
 const Project = require('../models/projects');
+const Issue = require('../models/issues');
         // First Controller FOR HOMEsCREEN
 module.exports.home = function ( req , res ){
     Project.find({} , function( err , projects ){
@@ -16,14 +17,20 @@ module.exports.create = function( req , res ){
     res.redirect('/');
 }
         // TO REMOVE THE PROJECT
-module.exports.destroy = function( req , res ){
-    Project.findByIdAndDelete(req.params.id , function(err , data){
-        if(err){ console.log('Error occur while deleting the project : ',err)}
-        console.log('Data deleted : ',data);
+module.exports.destroy = async function( req , res ){
+
+    //Delete All issues also which added on the post i.e. Which issue have projectID= req.params.id it should be deleted
+    try{
+        let project = await Project.findById(req.params.id);
+        console.log('Project to be deleted ',project);
+        project.remove();
+
+        await Issue.deleteMany({project : req.params.id });
         return res.redirect('/');
-    });
-    
-    
+    }
+    catch(err){
+        console.log('Error while destroy project ',err);
+    }
 }
 
 
