@@ -1,12 +1,12 @@
 						<!-- form SHowing of ADD-ISSUE -->
             <div class="collapse collapsing" id="collapseExample">
             
-                <form class="w-100 mx-auto p-2 bg-white rounded">
+                <form class="w-100 mx-auto p-2 bg-white rounded" action="/view-project/add-issue" method="POST">
                     <div class="row m-3">
-                        <input type="text" class="form-control col" placeholder="Title">
+                        <input name="title" type="text" class="form-control col" placeholder="Title">
                     </div>
                     <div class="row m-3">
-                        <textarea type="text" class="form-control col " placeholder="Description"></textarea>
+                        <textarea name="description" type="text" class="form-control col " placeholder="Description"></textarea>
                     </div>
                         <!-- Labels Feild -->
                     <div class="row m-3">
@@ -15,36 +15,36 @@
                             Labels 
                         </div>
                         <div class="col">
-                            <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                          <div class="form-check">
+                          <input name="label" class="form-check-input" type="checkbox" value="UI Improvement" id="flexCheckDefault">
                           <label class="form-check-label" for="flexCheckDefault">
                             UI Improvement
                           </label>
                         </div>
         
                         <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                          <input name="label" class="form-check-input" type="checkbox" value="Enhancement" id="flexCheckDefault">
                           <label class="form-check-label" for="flexCheckDefault">
                             Enhancement
                           </label>
                         </div>
 
                         <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                          <input name="label" class="form-check-input" type="checkbox" value="Duplication" id="flexCheckDefault">
                           <label class="form-check-label" for="flexCheckDefault">
                             Duplication
                           </label>
                         </div>
             
                         <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                          <input name="label" class="form-check-input" type="checkbox" value="Documentation" id="flexCheckDefault">
                           <label class="form-check-label" for="flexCheckDefault">
                             Documentation
                           </label>
                         </div>
 
                         <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                          <input name="label" class="form-check-input" type="checkbox" value="Bug" id="flexCheckDefault">
                           <label class="form-check-label" for="flexCheckDefault">
                             Bug
                           </label>
@@ -53,7 +53,7 @@
                     </div>
                         <!-- Author and Submit button -->
                     <div class="row m-3">
-                        <input type="text" class="form-control col me-2" placeholder="Author name">
+                        <input name="author" type="text" class="form-control col me-2" placeholder="Author name">
                         <button type="submit" class="btn btn-danger col-4 ms-2">Create Issues</button>
                     </div>		
                 </form>
