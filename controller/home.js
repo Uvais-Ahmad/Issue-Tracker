@@ -16,15 +16,6 @@ module.exports.create = function( req , res ){
     res.redirect('/');
 }
 
-module.exports.view = function( req , res ){
-    console.log('Params : ',req.params);
-    Project.findById(req.params.id , function(err , data){
-        if(err){ console.log('Error occur while deleting the project : ',err)}
-        console.log('FindBy iD =========== ',data);
-    })
-    res.redirect('/');
-}
-
 module.exports.destroy = function( req , res ){
     Project.findByIdAndDelete(req.params.id , function(err , data){
         if(err){ console.log('Error occur while deleting the project : ',err)}
@@ -34,3 +25,5 @@ module.exports.destroy = function( req , res ){
     
     
 }
+
+
