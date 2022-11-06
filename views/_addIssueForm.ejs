@@ -1,15 +1,16 @@
-						<!-- form SHowing of ADD-ISSUE -->
+						<!-- FORM  SHOWING TO ADD-ISSUE -->
             <div class="collapse collapsing" id="collapseExample">
             
                 <form class="w-100 mx-auto p-2 bg-white rounded" action="/view-project/add-issue" method="POST">
-                        <input type="hidden" name="project" value="<%= project._id %>">
+                    <!-- We pass hiddenly projectId while adding the issue -->
+                    <input type="hidden" name="project" value="<%= project._id %>"> 
                     <div class="row m-3">
                         <input name="title" type="text" class="form-control col" placeholder="Title">
                     </div>
                     <div class="row m-3">
                         <textarea name="description" type="text" class="form-control col " placeholder="Description"></textarea>
                     </div>
-                        <!-- Labels Feild -->
+                                          <!-- LABEL FEILD -->
                     <div class="row m-3">
         
                         <div class="col font-weight-bold text-secondary">

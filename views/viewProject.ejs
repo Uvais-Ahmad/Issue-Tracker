@@ -55,7 +55,8 @@
 				<h3 class="mx-3">Issue Lists</h3> 
 
 										<!-- FIRST ISSUE -->
-				<% if(issues){  %>
+						<!-- if issue have then show otherwise show not have issue -->
+				<% if(issues.length !=0 ){  %>
 					<% for(issue of issues){ %>
 						<div class="card mx-3 my-2">
 							<h5 class="card-header"><%= issue.author %> </h5>
@@ -71,6 +72,7 @@
 						</div>
 					<% } %> 
 				<% }else{  %>
+									<!-- When No issue present -->
 					<div class="card mx-3 my-2">
 						<h5 class="card-header text-danger">Empty !</h5>
 						<div class="card-body">
@@ -85,6 +87,8 @@
 	</main>
 
 	<script type="text/javascript">
+				// This Js code use to change add issue button to cross-btn
+				// its also used to show and hide form which is collapsed
 		let collapse = document.getElementById('collapseExample');
 		let btn = document.getElementById('showColl');
 		btn.addEventListener('click',collapseFun);
@@ -103,7 +107,6 @@
 				btn.innerText = "Add issue"
 			}
 		}
-
 	</script>
 
 </body>

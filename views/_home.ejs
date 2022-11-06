@@ -29,6 +29,17 @@
             <a href="/view-project/<%= project._id %>" class="btn btn-primary">View</a>
           </div>
         </div>
+      <% } %>
+
+       <!-- IF THERE IS NO PROJECT  -->
+      <% if(!projects){ %>
+        <div class="card mx-3 my-2">
+          <h5 class="card-header text-danger">Empty Project !</h5>
+          <div class="card-body">
+            <p class="card-text text-danger">!Oops your Project list is empty ,</p>
+            <p class="card-text text-danger">Dont panic :) just add something here and track issue</p>
+          </div>				
+        </div>
       <% } %> 
     </div>
 </main>

@@ -3,36 +3,36 @@ const Issue = require('../models/issues');
 
 module.exports.view = async function( req , res ){
 
-    let project = await Project.findById(req.params.id ).populate('issues');
-    console.log('Project : ',project);
+    try{
+        let project = await Project.findById(req.params.id ).populate('issues');
 
-    return res.render('viewProject',{
-        project : project,
-        issues : project.issues
-    });
-    // , function(err , data){
-    //     if(err){ console.log('Error occur while deleting the project : ',err)}
-    //     return res.render('viewProject',{
-    //         project : data,
-    //         issue : undefined
-    //     });
-    // })
+        return res.render('viewProject',{
+            project : project,
+            issues : project.issues
+        });
+    }
+    catch(err){
+        console.log('Error while view : ',err);
+    }
+    
 }
 
 module.exports.addIssue = async function( req , res ){
-    console.log('This is An Isue : ',req.body);
-
-    //find the project to add issue
-    let project =await Project.findById(req.body.project);
     
-    await Issue.create(req.body ,async function( err , issue ){
-        if(err){console.log('Error occur while adding Issue : ',err)}
+    try{
+        //find the project to add issue
+        let project =await Project.findById(req.body.project);
+        //Now add Issue in database
+        await Issue.create(req.body ,async function( err , issue ){
+            if(err){console.log('Error occur while adding Issue : ',err)}
+            //add issue in ProjectSchema also
+            await project.issues.push(issue);
+            await project.save();
 
-        await project.issues.push(issue);
-        await project.save();
-
-        console.log('iSSUE Created : ',issue);
-        console.log('PROJECT : ',project);
-        return res.redirect('back');
-    })
+            return res.redirect('back');
+        });
+    }
+    catch(err){
+        console.log('Error while addIssue : ',err);
+    }
 }
