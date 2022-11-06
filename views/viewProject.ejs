@@ -55,21 +55,21 @@
 				<h3 class="mx-3">Issue Lists</h3> 
 
 										<!-- FIRST ISSUE -->
-				<% if(issue){  %>
-					<div class="card mx-3 my-2">
-						<h5 class="card-header"><%= issue.author %> </h5>
-						<div class="card-body">
-							<h5 class="card-title"><%= issue.title %> </h5>
-							<p class="card-text"><%= issue.description %> </p>
-							<div class="">
-								<% for(lab of issue.label){ %>
-									<span class="bg-warning p-2 rounded"><%= lab %></span>
-	/							<% } %> 
-								
-
-							</div>
-						</div>				
-					</div>
+				<% if(issues){  %>
+					<% for(issue of issues){ %>
+						<div class="card mx-3 my-2">
+							<h5 class="card-header"><%= issue.author %> </h5>
+							<div class="card-body">
+								<h5 class="card-title"><%= issue.title %> </h5>
+								<p class="card-text"><%= issue.description %> </p>
+								<div class="">
+									<% for(lab of issue.label){ %>
+										<span class="bg-warning p-2 rounded"><%= lab %></span>
+									<% } %>
+								</div>
+							</div>				
+						</div>
+					<% } %> 
 				<% }else{  %>
 					<div class="card mx-3 my-2">
 						<h5 class="card-header text-danger">Empty !</h5>

@@ -2,13 +2,21 @@ const Project = require('../models/projects');
 const Issue = require('../models/issues');
 
 module.exports.view = async function( req , res ){
-    Project.findById(req.params.id , function(err , data){
-        if(err){ console.log('Error occur while deleting the project : ',err)}
-        return res.render('viewProject',{
-            project : data,
-            issue : undefined
-        });
-    })
+
+    let project = await Project.findById(req.params.id ).populate('issues');
+    console.log('Project : ',project);
+
+    return res.render('viewProject',{
+        project : project,
+        issues : project.issues
+    });
+    // , function(err , data){
+    //     if(err){ console.log('Error occur while deleting the project : ',err)}
+    //     return res.render('viewProject',{
+    //         project : data,
+    //         issue : undefined
+    //     });
+    // })
 }
 
 module.exports.addIssue = async function( req , res ){
