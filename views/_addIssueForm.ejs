@@ -2,6 +2,7 @@
             <div class="collapse collapsing" id="collapseExample">
             
                 <form class="w-100 mx-auto p-2 bg-white rounded" action="/view-project/add-issue" method="POST">
+                        <input type="hidden" name="project" value="<%= project._id %>">
                     <div class="row m-3">
                         <input name="title" type="text" class="form-control col" placeholder="Title">
                     </div>

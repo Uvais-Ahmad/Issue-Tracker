@@ -55,20 +55,30 @@
 				<h3 class="mx-3">Issue Lists</h3> 
 
 										<!-- FIRST ISSUE -->
-				<div class="card mx-3 my-2">
-					<h5 class="card-header">Uvais Ahmad</h5>
-					<div class="card-body">
-						<h5 class="card-title">AMD RUFUS</h5>
-						<p class="card-text">this is package issue</p>
-						<div class="">
-							
-							<span class="bg-warning p-2 rounded">Uhdfkhl</span>
-							<span class="bg-warning p-2 rounded">Uh</span>
-							<span class="bg-warning p-2 rounded">Uh</span>
+				<% if(issue){  %>
+					<div class="card mx-3 my-2">
+						<h5 class="card-header"><%= issue.author %> </h5>
+						<div class="card-body">
+							<h5 class="card-title"><%= issue.title %> </h5>
+							<p class="card-text"><%= issue.description %> </p>
+							<div class="">
+								<% for(lab of issue.label){ %>
+									<span class="bg-warning p-2 rounded"><%= lab %></span>
+	/							<% } %> 
+								
 
-						</div>
-					</div>				
-				</div>
+							</div>
+						</div>				
+					</div>
+				<% }else{  %>
+					<div class="card mx-3 my-2">
+						<h5 class="card-header text-danger">Empty !</h5>
+						<div class="card-body">
+							<p class="card-text text-danger">!Oops your issue list is empty ,</p>
+							<p class="card-text text-danger">Dont panic :) just analyse and add something here</p>
+						</div>				
+					</div>
+				<% } %> 
 				
 			</div>
 		</div>

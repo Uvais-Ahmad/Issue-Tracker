@@ -12,7 +12,12 @@ const projectSchema = new mongoose.Schema({
     author : {
         type : String,
         required : true
-    }
+    },
+    // Give ref Here also bcoz we should be store all issue details in each project
+    issues : [{
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'Issue'
+    }]
 },{
     timestamps:true
 });

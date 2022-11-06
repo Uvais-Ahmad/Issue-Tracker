@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const issueSchema = new mongoose.Schema({
     project : {
+        // if you add required feild here then it show error about Validation of project
         type : mongoose.Schema.Types.ObjectId,
         ref : 'Project'
     },

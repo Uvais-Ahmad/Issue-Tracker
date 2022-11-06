@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 const db = require('./config/mongoose');
 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded());
 
 
 app.use('/',require('./routers'))
