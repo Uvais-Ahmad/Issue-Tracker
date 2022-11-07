@@ -37,14 +37,20 @@
 			</div>
 		</div>
 
-								<!-- btn of  ADD-ISSUE , FILTER , SEARCH -->
+								<!-- BTN OF  ADD-ISSUE , SEARCH -->
 
 		<div class="w-50 border rounded mx-auto">
-			<p>
+			<div class="d-flex flex-row justify-content-around">
 				<button id='showColl' class="btn btn-primary mt-3 mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
 							Add issue
 				</button>
-			</p>
+
+				<div class="d-flex  flex-row">
+					<input type="search" name="search" class="form-control w-100 mt-3 ms-3" placeholder="search by author name">
+					<button type="submit" class="btn btn-primary mt-3 me-3" >Search</button>
+				</div>
+
+			</div>
 			
             <!-- AddIssue Form partials -->
             <%- include('_addIssueForm') %> 
@@ -85,6 +91,8 @@
 			</div>
 		</div>
 	</main>
+
+	<%- include('_filterAside') %> 
 
 	<script type="text/javascript">
 				// This Js code use to change add issue button to cross-btn
