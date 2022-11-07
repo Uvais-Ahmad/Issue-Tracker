@@ -45,10 +45,14 @@
 							Add issue
 				</button>
 
-				<div class="d-flex  flex-row">
+				<a class="btn btn-primary mt-3 mx-3" type="button" href="/view-project/<%= project._id %>" >
+					Show all issue
+				</a>
+
+				<form class="d-flex  flex-row" action="/view-project/search/<%= project._id %>" method="POST">
 					<input type="search" name="search" class="form-control w-100 mt-3 ms-3" placeholder="search by author name">
 					<button type="submit" class="btn btn-primary mt-3 me-3" >Search</button>
-				</div>
+				</form>
 
 			</div>
 			

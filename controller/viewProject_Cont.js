@@ -36,3 +36,41 @@ module.exports.addIssue = async function( req , res ){
         console.log('Error while addIssue : ',err);
     }
 }
+
+module.exports.filter = async function( req , res){
+  
+    let projId = req.params.id
+    let project = await Project.findById(projId);
+    let issue;
+    if(req.body.hasOwnProperty('labels')){
+        issue = await Issue.find({project : projId , label : { "$in" : req.body.labels} });
+    }
+    else{
+        issue = await Issue.find({author:req.body.author , project : projId});
+    }
+    console.log('Issue : ',issue)
+    
+    return res.render('viewProject',{
+        project : project,
+        issues : issue
+    });
+
+    // return res.redirect('back');
+}
+
+module.exports.search = async function( req , res){
+    console.log('Req.body of search : ',req.body);
+
+    let projId = req.params.id
+    let project = await Project.findById(projId);
+    let issue = await Issue.find({author:req.body.search , project : projId});
+    console.log('Issue : ',issue)
+
+    return res.render('viewProject',{
+        project : project,
+        issues : issue
+    });
+
+    // return res.redirect('back');
+
+}

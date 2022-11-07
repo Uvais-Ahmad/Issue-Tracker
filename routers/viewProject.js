@@ -9,5 +9,9 @@ router.get('/:id',viewCont.view);
 //to add issue on project
 router.post('/add-issue',viewCont.addIssue);
 
+router.post('/filter/:id',viewCont.filter);
+
+router.post('/search/:id',viewCont.search);
+
 
 module.exports = router;
