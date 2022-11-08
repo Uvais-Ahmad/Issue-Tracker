@@ -5,7 +5,7 @@
                     <!-- We pass hiddenly projectId while adding the issue -->
                     <input type="hidden" name="project" value="<%= project._id %>"> 
                     <div class="row m-3">
-                        <input name="title" type="text" class="form-control col" placeholder="Title">
+                        <input name="title" type="text" class="form-control col" placeholder="Title" required>
                     </div>
                     <div class="row m-3">
                         <textarea name="description" type="text" class="form-control col " placeholder="Description"></textarea>
@@ -55,7 +55,7 @@
                     </div>
                         <!-- Author and Submit button -->
                     <div class="row m-3">
-                        <input name="author" type="text" class="form-control col me-2" placeholder="Author name">
+                        <input name="author" type="text" class="form-control col me-2" placeholder="Author name" required>
                         <button type="submit" class="btn btn-danger col-4 ms-2">Create Issues</button>
                     </div>		
                 </form>

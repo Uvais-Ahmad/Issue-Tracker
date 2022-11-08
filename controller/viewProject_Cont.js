@@ -1,6 +1,8 @@
 const Project = require('../models/projects');
 const Issue = require('../models/issues');
 
+// It show the Project and all issues associated with project
+
 module.exports.view = async function( req , res ){
 
     try{
@@ -16,7 +18,7 @@ module.exports.view = async function( req , res ){
     }
     
 }
-
+// this add issues in db to the Project refrence which is viewed
 module.exports.addIssue = async function( req , res ){
     
     try{
@@ -37,12 +39,14 @@ module.exports.addIssue = async function( req , res ){
     }
 }
 
+// 
 module.exports.filter = async function( req , res){
-  
     let projId = req.params.id
+    //filter all issues associated with current view project
     let project = await Project.findById(projId);
     let issue;
     if(req.body.hasOwnProperty('labels')){
+        //$in populate the array and compare with passing array element
         issue = await Issue.find({project : projId , label : { "$in" : req.body.labels} });
     }
     else{
@@ -58,6 +62,7 @@ module.exports.filter = async function( req , res){
     // return res.redirect('back');
 }
 
+// search issue by name out of all issues associated with current project
 module.exports.search = async function( req , res){
     console.log('Req.body of search : ',req.body);
 

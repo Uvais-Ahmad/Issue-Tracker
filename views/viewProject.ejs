@@ -9,15 +9,15 @@
 		
 	</style>
 </head>
-<body>
+<body style="background-color: #DEF2F1">
 
     <%- include('_header') %> 
 
-	<main>
+	<main class="mb-2">
 	
 								<!-- view Project -->
 		<div class="card w-50 mx-auto p-3 mt-2">
-			<div class="card-body">
+			<div class="card-body rounded bg-white">
 
                 <div class="row bg-info py-2">
 					<h5 class="card-title col-3">Project - </h5>
@@ -39,7 +39,7 @@
 
 								<!-- BTN OF  ADD-ISSUE , SEARCH -->
 
-		<div class="w-50 border rounded mx-auto">
+		<div class="w-50 border rounded mx-auto bg-white">
 			<div class="d-flex flex-row justify-content-around">
 				<button id='showColl' class="btn btn-primary mt-3 mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
 							Add issue
@@ -61,14 +61,14 @@
 			<hr>
 
 									<!-- ISSUE LISTS CONTAINER -->
-			<div class="">
+			<div class="pb-4">
 				<h3 class="mx-3">Issue Lists</h3> 
 
 										<!-- FIRST ISSUE -->
 						<!-- if issue have then show otherwise show not have issue -->
 				<% if(issues.length !=0 ){  %>
 					<% for(issue of issues){ %>
-						<div class="card mx-3 my-2">
+						<div class="card mx-3 my-2 shadow">
 							<h5 class="card-header"><%= issue.author %> </h5>
 							<div class="card-body">
 								<h5 class="card-title"><%= issue.title %> </h5>
@@ -95,8 +95,10 @@
 			</div>
 		</div>
 	</main>
-
+	<!-- ASIDE FILter form -->
 	<%- include('_filterAside') %> 
+
+	<%- include('_footer') %> 
 
 	<script type="text/javascript">
 				// This Js code use to change add issue button to cross-btn

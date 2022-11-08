@@ -4,12 +4,12 @@
             <div class="row m-3">
                 <input name="author" type="text" class="form-control col me-2 w-75" placeholder="Filter by author">
             </div>
-
+            <!-- btn for showing dropdown -->
             <button  class="btn btn-primary dropdown-toggle labelDropdown ms-3 w-75" type="button" id="dropdownMenuButton"
 				    data-mdb-toggle="dropdown" aria-expanded="false">
 				    Labels
 			</button>
-
+            <!-- Labels -->
             <ul id="labelList" isShow="0" style="background-color : lightgrey" class="dropdown-menu ms-3 w-75 mt-1" aria-labelledby="dropdownMenuButton">
                 <% let labels = ['UI Improvement','Enhancement','Duplication','Documentation','Bug']; %> 
                 <% for(label of labels){ %>
@@ -24,7 +24,7 @@
                     
                 <% } %> 
             </ul>
-
+            <!-- Btn for submiting the details -->
             <button type="submit" class="btn btn-success col-4 m-3">Filter</button>	
         </div>
     </form>
