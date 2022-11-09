@@ -12,7 +12,7 @@ module.exports.home = function ( req , res ){
         // TO CERATE THE PROJECT FOR ISSUE TRACK
 module.exports.create = function( req , res ){
     Project.create( req.body , function(err , project){
-        if(err){ console.log('Error occur while deleting the project : ',err)}
+        if(err){ console.log('Error occur while creating the project : ',err)}
     })
     res.redirect('/');
 }
